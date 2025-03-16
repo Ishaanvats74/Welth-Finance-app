@@ -11,17 +11,17 @@ const Header = () => {
     <div className='fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b ' >
       <nav className='container mx-auto p-4 flex items-center justify-between'>
           <Link href="/"> 
-            <Image src={"/logo.png"} alt='Logo' height={60} width={200} className='h-12 w-auto object-contain'/>
+            <Image src={ "/logo.png" } alt='Logo' height={60} width={200} className='h-12 w-auto object-contain'/>
           </Link>
           <div className='flex items-center space-x-4'>
             <SignedIn>
-              <Link href={"/dashboard"} className='text-gray-600 hover:text-blue-600 flex items-center gap-2'>
+              <Link href={ "/dashboard" } className='text-gray-600 hover:text-blue-600 flex items-center gap-2'>
                 <Button variant="outline">
                   <LayoutDashboard size={18}/>
                   <span className='hidden md:inline'>Dashboard</span>
                 </Button>
               </Link>
-              <Link href={"/transaction/create"} className='flex items-center gap-2'>
+              <Link href={ "/transaction/create" } className='flex items-center gap-2'>
                 <Button >
                   <PenBox size={18}/>
                   <span className='hidden md:inline'>Add Transaction</span>
@@ -34,10 +34,10 @@ const Header = () => {
               </SignInButton>
             </SignedOut>
             <SignedIn>
-                <UserButton 
+                <UserButton
                   appearance={{
-                    elements: {
-                      avatarBox: "w-10 h-10",
+                    elements:{
+                      avatarBox:"w-10 h-10",
                     },
                   }}
                 />
