@@ -35,9 +35,9 @@ const Header = () => {
             </SignedOut>
             <SignedIn>
                 <UserButton
-                  appearance={{
-                    elements:{
-                      avatarBox:"w-10 h-10",
+                   appearance={{
+                    elements: {
+                      avatarBox: "w-16 h-16", 
                     },
                   }}
                 />
