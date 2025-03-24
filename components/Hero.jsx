@@ -4,20 +4,24 @@ import Link from 'next/link';
 import React, { useEffect, useRef } from 'react'
 
 const HeroSection = () => {
-    const imageRef = useRef()
+    const imageRef = useRef(null);
 
     useEffect(() => { 
         const imageElement = imageRef.current; 
         const handleScroll = () => {
-            const scrollPosition = window.scrollY;
-            const scollThreshold = 100;
+            if (imageElement) {
 
-            if(scrollPosition>scollThreshold){
-                imageElement.classlist.add("scrolled");
+                const scrollPosition = window.scrollY;
+                const scollThreshold = 100;
+
+                if(scrollPosition>scollThreshold){
+                    imageElement.classList.add("scrolled");
+                }
+                else {
+                    imageElement.classList.remove("scrolled");
+                }
             }
-            else {
-                imageElement.classlist.remove("scrolled");
-            }
+            
         }
 
         window.addEventListener("scroll" , handleScroll);
@@ -39,15 +43,14 @@ const HeroSection = () => {
                     <button size='lg' className='px-7 rounded-md py-2 shadow hover:bg-white/80 hover:text-black/80'> Learn More</button>
                 </Link>
             </div>
-            <div className='perspective-1000 '>
+            <div className='hero-image-wrapper'>
                 <div ref={imageRef} className='hero-image'>
-                    <Image src={"/banner.jpeg"} width={1280} height={720} alt='Dashboard Preview' priority className='rounded-lg shadow-2xl border mx-auto'></Image>
+                    <Image src="/banner.jpeg" width={1280} height={720} alt='Dashboard Preview' priority className=' rounded-lg shadow-2xl border mx-auto '></Image>
                 </div>
             </div>
         </div>
     </div>
   )
 }
-
 export default HeroSection
 
