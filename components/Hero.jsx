@@ -10,7 +10,7 @@ const HeroSection = () => {
         const imageElement = imageRef.current; 
         const handleScroll = () => {
             if (imageElement) {
-
+                
                 const scrollPosition = window.scrollY;
                 const scollThreshold = 100;
 
