@@ -1,5 +1,4 @@
 'use server' ;
-
 import { db } from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
@@ -30,8 +29,8 @@ export async function createAccount(data) {
         }
 
         // convert balance to float before saving 
-        const balamceFloat = parseFloat(data.balance)
-        if (isNaN(balamceFloat)){
+        const balanceFloat = parseFloat(data.balance)
+        if (isNaN(balanceFloat)){
             throw new Error("Invaild balance Amount")
         }
 
@@ -44,7 +43,7 @@ export async function createAccount(data) {
 
         const shouldBeDefault = exisitngAccounts.length===0?true: data.isDefault;
 
-        //If this account should be default , umset other default accounts 
+        //If this account should be default , unset other default accounts 
         if (shouldBeDefault) {
             await db.account.updateMany({
                 where:{
