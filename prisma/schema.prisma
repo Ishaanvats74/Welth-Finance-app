@@ -103,5 +103,3 @@ model Budget{
   @@index([userId])
   @@map("budgets")
 }
-
-
