@@ -8,7 +8,6 @@ import { Input } from './ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { Switch } from './ui/switch';
 import { Button } from './ui/button';
-import { toast } from 'sonner';
 
 const CreateAccountDrawer= ({children}) => {
     const [open,setOpen] = useState(false);
@@ -26,10 +25,10 @@ const CreateAccountDrawer= ({children}) => {
     const onSubmit = async (data) => {
         try {
             console.log(data);
-            toast.success("Account created successfully!")
+            
         } catch (error) {
             console.log(error);
-            toast.error("Failed to create account. Please try again.")
+            
         }
     };
   return (
@@ -45,8 +44,8 @@ const CreateAccountDrawer= ({children}) => {
                         <label htmlFor="name" className='text-sm font-medium'>Account Name</label>
                         <Input id="name" placeholder="e.g., Main Checking" {...register("name")} />
                         {errors.name && (
-                            <p className='text-sm bg-red-500'>{errors.name.message}</p>
-                        )}
+                            <p className="text-sm bg-red-500">{errors.name.message}</p>
+                            )}
                     </div>
                 </form>
             </div>
@@ -91,7 +90,7 @@ const CreateAccountDrawer= ({children}) => {
                         </div>
                         <Switch id="isDefault"  onCheckedChange={(checked) => setValue("isDefault", checked)} checked={watch("isDefault")} />
                     </div>
-                    <div>
+                    <div className='flex gap-4 pt-4'>
                         <DrawerClose asChild>
                             <Button type="button" variant="outline" className="flex-1">
                                 cancel
